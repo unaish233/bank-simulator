@@ -7,21 +7,21 @@ import datetime as date
 # LOGIN DETAIL FILE CREATING TO STORE THE INFORMATION OF THE ACCOUNT HOLDER DETAIL
 def create_login_detail_file():
     try:
-        with open("E:\\Programs\\python project\\bank account system\\logindetail.json", "xt") as file:
+        with open("logindetail.json", "xt") as file:
             print("Creating file")
             
     except FileExistsError:
         print("File already exits")
 
     finally:
-        with open("E:\\Programs\\python project\\bank account system\\logindetail.json", "rt") as file:
+        with open("logindetail.json", "rt") as file:
             file.read()
             # print(file.read())
 
    
 # CREATING THE FUNCTION TO READ TEH INFORMATION FROM THE LOGIN DETAIL JSON FILE   
 try:
-    with open("E:\\Programs\\python project\\bank account system\\logindetail.json", "rt") as file_reads:
+    with open("logindetail.json", "rt") as file_reads:
         global data
         data = js.load(file_reads)
 
@@ -30,7 +30,7 @@ except Exception:
 
 # FUNCTION FOR WRITING THE EDITED OR NEW ACCOUNT INFORMATION
 def write_account_detail():
-    with open("E:\\Programs\\python project\\bank account system\\logindetail.json", "w") as accounts_files:
+    with open("logindetail.json", "w") as accounts_files:
         js.dump(data, accounts_files, indent=4)
 
 
@@ -179,12 +179,12 @@ def edit_bank_information():
 
 # FUNCTION FOR ACCOUNT DETAIL READING
 def account_detail():
-    with open("E:\\Programs\\python project\\bank account system\\logindetail.json" , "rt") as file_detail:
+    with open("logindetail.json" , "rt") as file_detail:
         return js.load(file_detail)
         
 
 def write_bank_detail(account):
-    with open("E:\\Programs\\python project\\bank account system\\logindetail.json" , "w") as file_detail:
+    with open("logindetail.json" , "w") as file_detail:
         js.dump(account, file_detail,indent=4)
     
 
